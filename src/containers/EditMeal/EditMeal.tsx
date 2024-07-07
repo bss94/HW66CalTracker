@@ -1,10 +1,11 @@
 import React from 'react';
+import MealForm from '../../components/MealForm/MealForm';
 
 const EditMeal = () => {
   return (
-    <div>
-      
-    </div>
+    <>
+      <MealForm isEdit/>
+    </>
   );
 };
 

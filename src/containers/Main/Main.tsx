@@ -1,10 +1,11 @@
 import React from 'react';
+import MealList from '../../components/MealList/MealList';
 
 const Main = () => {
   return (
-    <div>
-      
-    </div>
+    <>
+      <MealList/>
+    </>
   );
 };
 
