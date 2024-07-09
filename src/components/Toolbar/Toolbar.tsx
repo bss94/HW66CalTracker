@@ -2,12 +2,12 @@ import React from 'react';
 import {Container, Nav, Navbar} from 'react-bootstrap';
 import {NavLink} from 'react-router-dom';
 
-const Toolbar= () => {
+const Toolbar = () => {
   return (
     <Navbar bg="success" data-bs-theme="dark">
       <Container>
         <NavLink className="navbar-brand" to="/">
-         Tracker
+          Tracker
         </NavLink>
         <Nav className="ms-auto">
           <NavLink className="nav-link" to={`/`}>Main</NavLink>
