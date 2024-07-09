@@ -1,8 +1,8 @@
-import {NavLink, Route, Routes} from 'react-router-dom';
+import {Route, Routes} from 'react-router-dom';
 import EditMeal from './containers/EditMeal/EditMeal';
 import AddMeal from './containers/AddMeal/AddMeal';
 import Main from './containers/Main/Main';
-import {Container, Row} from 'react-bootstrap';
+
 import Layout from './components/Layout/Layout';
 
 const App = () => (

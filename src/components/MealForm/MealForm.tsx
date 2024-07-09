@@ -1,15 +1,21 @@
 import React, {useState} from 'react';
 import SubmitBtn from './SubmitBtn/SubmitBtn';
 import {Col, Form, Spinner} from 'react-bootstrap';
+import {ApiMeal, MealMutation} from '../../types';
+
 
 interface Props {
   isEdit?: boolean;
+  isSending:boolean;
   isLoading?: boolean;
+  onSubmit:(meal:ApiMeal)=>void;
 }
 
 const MealForm: React.FC<Props> = ({
   isEdit,
+  isSending,
   isLoading,
+  onSubmit
 
 }) => {
   const [mealMutation, setMealMutation] = useState<MealMutation>({
@@ -17,7 +23,7 @@ const MealForm: React.FC<Props> = ({
     food: '',
     calories: ''
   });
-  const [isSending, setIsSending] = useState(false);
+
 
   const changeField = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
@@ -30,12 +36,12 @@ const MealForm: React.FC<Props> = ({
   };
 
   const onFormSubmit = async (event: React.FormEvent) => {
-    setIsSending(true);
     event.preventDefault();
-    const postData: Meal = {
+    const postData: ApiMeal = {
       ...mealMutation,
       calories: parseFloat(mealMutation.calories)
     };
+    void onSubmit(postData)
   };
 
   return isLoading ?
