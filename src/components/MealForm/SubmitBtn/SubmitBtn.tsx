@@ -8,7 +8,7 @@ interface Props {
 
 const SubmitBtn: React.FC<Props> = ({isSending}) => (
   <>
-    <Button variant="primary"
+    <Button variant="success"
             type="submit"
             disabled={isSending}
     >

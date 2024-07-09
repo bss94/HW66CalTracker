@@ -16,7 +16,6 @@ const Main = () => {
       const {data: meals} = await axiosApi.get<ApiMeals | null>(
         '/meals.json',
       );
-      console.log(meals);
       if (!meals) {
         setMeals([]);
       } else {

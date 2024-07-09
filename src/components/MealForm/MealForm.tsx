@@ -5,7 +5,6 @@ import {ApiMeal, MealMutation} from '../../types';
 
 
 interface Props {
-  isEdit?: boolean;
   isSending: boolean;
   existingMeal?: ApiMeal;
   onSubmit: (meal: ApiMeal) => void;
@@ -18,7 +17,6 @@ const emptyState: MealMutation = {
 };
 
 const MealForm: React.FC<Props> = ({
-  isEdit,
   isSending,
   existingMeal,
   onSubmit
@@ -40,7 +38,6 @@ const MealForm: React.FC<Props> = ({
       [name]: value,
     }));
   };
-
   const onFormSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     const postData: ApiMeal = {
@@ -55,7 +52,7 @@ const MealForm: React.FC<Props> = ({
       <Col/>
       <Col sm={10}>
         <Form onSubmit={onFormSubmit} className="mt-3">
-          <Form.Text muted><h1>{isEdit ? 'Edit Meal' : 'Create Meal'}</h1></Form.Text>
+          <Form.Text muted><h1>{existingMeal ? 'Edit Meal' : 'Create Meal'}</h1></Form.Text>
           <Form.Group className="mt-3 mb-3"
                       controlId="meaLTime"
           >
