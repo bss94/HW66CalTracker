@@ -15,10 +15,9 @@ const AddMeal = () => {
       await axiosApi.post('/meals.json', meal);
       navigate('/');
       toast.success('Meal created');
-    }catch (e) {
+    } catch (e) {
       toast.error('Error, create lost ' + e);
-    }
-    finally {
+    } finally {
       setIsCreating(false);
     }
   };
