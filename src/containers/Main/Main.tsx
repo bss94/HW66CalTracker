@@ -4,6 +4,7 @@ import {Col, Spinner} from 'react-bootstrap';
 import {ApiMeals, Meal} from '../../types';
 import axiosApi from '../../axiosApi';
 import {toast} from 'react-toastify';
+import {NavLink} from 'react-router-dom';
 
 const Main = () => {
   const [meals, setMeals] = useState<Meal[]>([]);
@@ -59,11 +60,15 @@ const Main = () => {
             <Spinner className="mt-3" animation="border" variant="success"/>
           </div>)
           :
-          (
-
-            <MealList meals={meals} deleteMeal={deleteMeal}/>
+          (<div className="d-flex justify-content-between align-items-center mt-4 p-3">
+              <h4>Total calories: <strong>{meals.reduce((sum, meal) => {
+                return sum + meal.calories;
+              }, 0)}</strong></h4>
+              <NavLink className="btn btn-success" to={'/meal/add'}>Add new Meal</NavLink>
+            </div>
           )
         }
+        <MealList meals={meals} deleteMeal={deleteMeal}/>
 
       </Col>
       <Col/>
